@@ -12,6 +12,10 @@ namespace Disaheim
         private string _design;
         private Level _quality;
 
+        public static double LowQualityValue = 12.5;
+        public static double MediumQualityValue = 20;
+        public static double HighQualityValue = 27.5;
+
         // Properties
         public string Design
         {
@@ -52,6 +56,13 @@ namespace Disaheim
             _design = "";
         }
 
+        public Amulet() 
+        {
+            // Default values
+            _quality = Level.medium;
+            _design = "";
+        }
+
         // Override ToString() returs a formatted string of the values of the fields
         public override string ToString()
         {
@@ -59,5 +70,18 @@ namespace Disaheim
             return $"ItemId: {ItemId}, Quality: {_quality}, Design: {_design}";
 
         }
+
+        // Returns the value of the amulet depending on it's quality
+        public override double GetValue()
+        {
+            double value = 0;
+            if (Quality == Level.low) { value = LowQualityValue; }
+            if (Quality == Level.medium) { value = MediumQualityValue; }
+            if (Quality == Level.high) { value = HighQualityValue; }
+
+            return value;
+        }
+
+
     }
 }
