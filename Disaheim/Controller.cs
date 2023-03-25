@@ -25,14 +25,24 @@ namespace Disaheim
 			set { _amulets = value; }
 		}
 
-        public List<Course> Courses { get; set; }
+		private List<IValuable> _valuableRepo;
 
-        // Constructors that initializes the properties for Books and Amulets
+		public List<IValuable> ValuableRepository
+		{
+			get { return _valuableRepo; }
+			set { _valuableRepo = value; }
+		}
+
+
+		public List<Course> Courses { get; set; }
+
+        // Constructors that initializes the properties for Books, Amulets, Course and IValuable
         public Controller()
 		{
 			_books = new List<Book>();
 			_amulets = new List<Amulet>();
 			Courses = new List<Course>();
+			_valuableRepo = new List<IValuable>();
         }
 
 		// Metode der tilføjer objekter til deres respektive lister
@@ -53,6 +63,10 @@ namespace Disaheim
 			Courses.Add(course);
 		}
 
+		public void AddToList(IValuable valuable)
+		{
+			_valuableRepo.Add(valuable);
+		}
 
 
 

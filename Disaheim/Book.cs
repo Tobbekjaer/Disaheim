@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Disaheim
 {
-    public class Book : Merchandise
+    public class Book : Merchandise 
     {
 		// Fields and properties
 		private string _title;
@@ -53,6 +53,14 @@ namespace Disaheim
 			_price = 0;
 		}
 
+		public Book() 
+		{
+            // Default values
+			
+            _title = "";
+            _price = 0;
+        }
+
         // Override ToString() returs a formatted string of the values of the fields
         public override string ToString() 
 		{
@@ -60,7 +68,10 @@ namespace Disaheim
             return $"ItemId: {ItemId}, Title: {_title}, Price: {_price}";
 		}
 
+        public override double GetValue()
+        {
+            return _price;
+        }
 
-
-	}
+    }
 }
